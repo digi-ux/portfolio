@@ -6,25 +6,44 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Add Bootstrap CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 		<style>
-			.carousel {
-				border: 1px solid black;
-				position: relative;
+.carousel {
+	border: 1px solid black;
+	position: relative;
+}
+.carousel-control-prev,
+.carousel-control-next {
+	width: 5%;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+	filter: invert(1);
+	border: 1px solid lightgray;
+	border-radius: 50%;
+}
+figcaption {
+	font-weight: bold;
+}
+p, ul {
+	
+	max-width: 75ch;
+	color: #555;
+	margin: 0 auto;
+	line-height: 1.6;
+	margin-bottom: 15px;
+}
+img:not(.carousel-item img) {
+				margin-top: 20px;
+				max-width: 100%;
+				height: auto;
+				margin: 0 auto;
+				display: block;
 			}
-			.carousel-control-prev,
-			.carousel-control-next {
-				width: 5%;
-			}
-			.carousel-control-prev-icon,
-			.carousel-control-next-icon {
-				filter: invert(1);
-				border: 1px solid lightgray;
-				border-radius: 50%;
-			}
-			figcaption {
-				font-weight: bold;
-			}
+
+
+
 		</style>
 	</head>
 	<body class="is-preload">
@@ -43,10 +62,13 @@
 										<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 									</ul>
 								</header>
-
+								<div class="image object">
+									<img src="images/five.jpg" alt="Responsive image" />
+								</div>
 							<!-- Banner -->
 								<section id="banner">
 									<div class="content">
+										
 										<header>
 											<h1>About me<br /></h1>
 											<p>UX Designer | Graduate</p>
@@ -56,9 +78,8 @@
 											<li><a href="more.html" class="button big">Learn More</a></li>
 										</ul>
 									</div>
-									<span class="image object">
-										<img src="images/five.jpg" alt="" />
-									</span>
+
+									
 								</section>
 
 						</div>
@@ -108,7 +129,6 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<!-- Add Bootstrap JS -->
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
