@@ -1217,8 +1217,12 @@ input[type="radio"] + label:before {
   display: inline-block;
   position: relative; }
   .image img {
-    border-radius: 0.375em;
-    display: block; }
+    display: block; /* Ensure the image is treated as a block element */
+    max-width: 100%; /* Scale the image to fit its container */
+    height: auto; /* Maintain the aspect ratio */
+    margin: 0 auto; /* Center the image horizontally */
+    object-fit: contain; /* Ensure the image fits within the container */
+  }
   .image.left, .image.right {
     max-width: 40%; }
     .image.left img, .image.right img {
@@ -1256,6 +1260,52 @@ a.image {
     -webkit-transform: scale(1.075);
     -ms-transform: scale(1.075);
     transform: scale(1.075); }
+
+/* Add a specific class for responsive images */
+.responsive-img {
+    max-width: 100%; /* Ensure the image scales to fit its container */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;  /* Remove inline spacing */
+}
+
+/* Ensure non-carousel images are styled separately */
+img:not(.carousel-item img) {
+    margin-top: 20px;
+    max-width: 75%; /* Adjust as needed */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Optional: Add comments to clarify usage */
+.image img {
+    /* This applies to images inside .image containers */
+    border-radius: 0.375em;
+    display: block;
+}
+
+.image img, 
+#banner .image img {
+    display: block; /* Ensure the image is treated as a block element */
+    max-width: 100%; /* Scale the image to fit its container */
+    max-height: 100%; /* Ensure the image doesn't exceed the container's height */
+    height: auto; /* Maintain the aspect ratio */
+    width: auto; /* Allow the width to adjust proportionally */
+    margin: 0 auto; /* Center the image horizontally */
+    object-fit: contain; /* Ensure the entire image fits within the container */
+}
+
+@media screen and (max-width: 768px) {
+    #banner .image img {
+        max-height: 50vh; /* Limit the height to 50% of the viewport height on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #banner .image img {
+        max-height: 40vh; /* Further reduce the height for very small screens */
+    }
+}
 
 /* List */
 ol {
@@ -1298,10 +1348,10 @@ ul.actions {
   display: flex;
   cursor: default;
   list-style: none;
-  margin-left: -1em;
+
   padding-left: 0; }
   ul.actions li {
-    padding: 0 0 0 1em;
+    padding: 0 0 0 0;
     vertical-align: middle; }
   ul.actions.special {
     -moz-justify-content: center;
@@ -1782,7 +1832,7 @@ button,
       margin-bottom: 0; }
       .posts article:nth-last-child(1):before, .posts article:nth-last-child(2):before, .posts article:nth-last-child(3):before {
         height: 100%; }
-      .posts article:nth-last-child(1):after, .posts article:nth-last-child(2):after, .posts article:nth-last-child(3):after {
+      .posts article:nth-last-child(1):after, .posts article:nth-last-child(2):after {
         display: none; } }
   @media screen and (max-width: 1680px) {
     .posts article {
@@ -2175,15 +2225,28 @@ button,
         -moz-flex-shrink: 0;
         -webkit-flex-shrink: 0;
         -ms-flex-shrink: 0;
-        flex-shrink: 0;
+        flex-shrink: 1; /* Tillåter bilden att krympa på mindre skärmar */
         margin: 0 0 4em 0;
-        height: 25em;
-        max-height: 50vh;
-        min-height: 18em;
+        height: auto; /* Låter höjden anpassa sig efter bildens proportioner */
+        max-height: 40vh; /* Minskar maximal höjd */
+        min-height: auto; /* Låter höjden anpassa sig efter bildens proportioner */
         width: 100%; } }
   @media screen and (orientation: portrait) and (max-width: 480px) {
     #banner .image {
       max-height: 35vh; } }
+  @media screen and (orientation: landscape) {
+    #banner .image {
+      flex-shrink: 10; /* Allow the image to shrink */
+      margin: 0 auto; /* Center the image horizontally */
+      height: auto; /* Maintain aspect ratio */
+      max-height: 30vh; /* Limit the maximum height */
+      width: auto; /* Allow the width to adjust proportionally */
+      display: block; /* Ensure the image is treated as a block element */
+      object-fit: contain; /* Ensure the image fits within the container */
+    }
+}
+
+
 
 /* Footer */
 #footer .copyright {

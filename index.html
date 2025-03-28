@@ -9,38 +9,55 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 		<style>
+/* Scoped styles for carousel */
 .carousel {
-	border: 1px solid black;
-	position: relative;
+    border: 1px solid black;
+    position: relative;
 }
+
 .carousel-control-prev,
 .carousel-control-next {
-	width: 5%;
+    width: 5%;
 }
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-	filter: invert(1);
-	border: 1px solid lightgray;
-	border-radius: 50%;
+    filter: invert(1);
+    border: 1px solid lightgray;
+    border-radius: 50%;
 }
+
+
 figcaption {
 	font-weight: bold;
 }
-p, ul {
-	
-	max-width: 75ch;
-	color: #555;
-	margin: 0 auto;
-	line-height: 1.6;
-	margin-bottom: 15px;
-}
-img:not(.carousel-item img) {
-				margin-top: 20px;
-				max-width: 100%;
-				height: auto;
+p, ul, header p {
+		max-width: 75ch;
+		color: #555;
+		margin: 0 auto;
+		line-height: 1.6;
+		margin-bottom: 15px;
+	}
+
+h2, h1, header p{
+				text-align: left;
+				max-width: 650px;
 				margin: 0 auto;
-				display: block;
+				margin-bottom: 10px;
+				
+				
 			}
+
+
+/* Ensure non-carousel images are styled separately */
+img:not(.carousel-item img) {
+		margin-top: 20px;
+		max-width: 75%;
+		height: auto;
+		margin: 0 auto;
+		display: block;
+				
+		}
 
 
 
@@ -62,15 +79,15 @@ img:not(.carousel-item img) {
 										<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 									</ul>
 								</header>
-								<div class="image object">
-									<img src="images/five.jpg" alt="Responsive image" />
+								<div class="image object" style="text-align: center;">
+									<img src="images/five.jpg" alt="Responsive image" style="display: inline-block;" />
 								</div>
 							<!-- Banner -->
 								<section id="banner">
 									<div class="content">
 										
 										<header>
-											<h1>About me<br /></h1>
+											<h1>About me</h1>
 											<p>UX Designer | Graduate</p>
 										</header>
 										<p>I am a passionate UX designer with a strong understanding of user-centered design, interaction design, and prototyping. With a degree in UX design and hands-on experience from three completed projects, I strive to create intuitive and engaging digital experiences.</p>
